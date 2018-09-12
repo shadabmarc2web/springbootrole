@@ -1,0 +1,48 @@
+
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>User Topics Details</h3>
+   <div>
+	    Logged in user: <b th:inline="text"  class="user"> [[${#httpServletRequest.remoteUser}]] 
+	    <form th:action="@{/logout}" method="POST">
+	         <input type="submit" value="Logout"/>
+	    </form>
+ <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Uid</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Pass</th>
+        <th>Delete User Info</th>
+        <th>Update User Info</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="user : ${users}">
+        <td th:text="${user.user_id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.password}"></td>
+   
+       <td><a th:href="@{/delete/__${user.user_id}__/user}" class="btn btn-primary btn-sm">DELETE</a></td>
+	<td><a  th:href="@{/update/__${user.user_id}__/user/request}" class="btn btn-primary btn-sm">Update</a></td>
+	
+	<!-- <a href="/notesEdit/1" th:href="@{/notesEdit/__${notes.id}__}">Edit</a>
+                        <a href="/notesDelete/1" th:href="@{/notesDelete/__${notes.id}__}">Delete</a>
+      -->
+    </tr>
+    </tbody>
+  </table>
+</body>
+</html>
