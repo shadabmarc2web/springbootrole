@@ -1,12 +1,11 @@
 package com.marc2web.demo.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.marc2web.demo.model.User;
+import com.marc2web.demo.model.UserInfo;
 
-@Repository("userRepository")
-public interface UserRepository extends JpaRepository<User, Integer>{
- public User findByEmail(String email);
+@Repository
+public interface UserRepository extends CrudRepository<UserInfo, Integer>{
+	public UserInfo getUserByUsername(String username);
 }
