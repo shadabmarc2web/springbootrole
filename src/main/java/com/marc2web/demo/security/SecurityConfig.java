@@ -1,4 +1,4 @@
-package com.marc2web.demo.security;
+/*package com.marc2web.demo.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
@@ -63,4 +63,4 @@ public  class SecurityConfig extends WebSecurityConfigurerAdapter {
             auth.userDetailsService(myAppUserDetailsService).passwordEncoder(bCryptPasswordEncoder);
 	}
 	
-}
+}*/
